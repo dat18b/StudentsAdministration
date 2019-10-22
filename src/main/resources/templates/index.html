@@ -1,11 +1,46 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Students List</title>
+    <title>Students at Kea</title>
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-    <h1>Students @kea</h1>
 
+<div class="container">
+
+
+
+    <h1>Students</h1>
+    <p>Enrolled students at kea</p>
+
+    <a href="/create" class="btn">Create</a>
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="student : ${students_data}">
+            <td th:text="${student.id}"></td>
+            <td th:text="${student.name}"></td>
+            <td>
+                <a th:href="  ${'/details?id=' + student.id}" class="btn btn-details">Details</a>
+                <a th:href="  ${'/edit?id=' + student.id}" class="btn btn-ed">Edit</a>
+                <a th:href="  ${'/delete?id=' + student.id}" class="btn btn-del">Delete</a>
+            </td>
+        </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
 </body>
 </html>
