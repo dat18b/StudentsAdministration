@@ -1,7 +1,9 @@
 package kea.clbo.controller;
 
 import kea.clbo.model.Student;
+import kea.clbo.repository.IStudentsRepository;
 import kea.clbo.repository.StudentsArraylistRepository;
+import kea.clbo.repository.StudentsDbRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +17,7 @@ import java.util.List;
 public class StudentsController {
 
 
-    private StudentsArraylistRepository studentsRepo = new StudentsArraylistRepository();
+    private IStudentsRepository studentsRepo = new StudentsDbRepository();
 
     public StudentsController(){
 
